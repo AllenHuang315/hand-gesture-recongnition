@@ -1,0 +1,5 @@
+sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+
+ pip3 install --upgrade numpy simplejpeg
+
+
