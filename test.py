@@ -58,7 +58,7 @@ current_ai_move = None
 current_result_text = None
 current_confidence = None
 
-# Variables for tracking detection state
+# tracking detection state
 is_first_detection = True
 initial_detection_time = None
 INITIAL_DETECTION_DELAY = 0.5  # 500ms delay to avoid duplicate detections

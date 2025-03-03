@@ -10,20 +10,15 @@ from keras.utils import to_categorical
 data_dict = pickle.load(open('data.pickle', 'rb'))
 data = np.asarray(data_dict['data'])
 labels = np.asarray(data_dict['labels'])
+print("Original data shape:", data.shape)
 
-# Check original shape
-print("Original data shape:", data.shape)  # Should print (268, 42)
-
-# Dynamically calculate the shape for LSTM input
 total_elements = data.size  # Total number of elements in the data
-num_samples = data.shape[0]  # Actual number of samples (268 in this case)
+num_samples = data.shape[0]  # number of samples
 
-# Calculate the total number of features (timesteps * features) based on the total elements
+# Calculate the total number of features
 elements_per_sample = total_elements // num_samples
 
-# Find a factorization of elements_per_sample that makes sense for timesteps and features
-# We will assume that timesteps <= 10 and features will be the remainder
-timesteps = 6  # Chosen arbitrary timestep, you can adjust this
+timesteps = 6  # Chosen timestep
 features = elements_per_sample // timesteps
 
 print(f"Reshaping data into ({num_samples}, {timesteps}, {features})")
